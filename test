@@ -1,0 +1,48 @@
+import javax.swing.JOptionPane;
+
+public class pract1 {
+    public static void main(String[] args) {
+         String great = "";
+         String good = "";
+         String bad = "";
+        
+        int choice1, choice2, choice3, choice4, answer;
+      
+
+        do {
+            // Display menu and prompt for first choice
+             choice1 = Integer.parseInt(JOptionPane.showInputDialog("How you feel? \n\n" +
+                "1. great! " + great + "\n" +
+                "2. Good " + good + "\n" +
+                "3. Bad " + bad + "\n"));
+
+              choice2 = Integer.parseInt(JOptionPane.showInputDialog("How's your life?\n\n" +
+                "1. great! " + great + "\n" +
+                "2. Good " + good + "\n" +
+                "3. Bad " + bad + "\n"));
+                
+             choice3 = Integer.parseInt(JOptionPane.showInputDialog("How's life in college?\n\n" +
+                "1. great! " + great + "\n" +
+                "2. Good " + good + "\n" +
+                "3. Bad " + bad + "\n"));
+                
+             choice4 = Integer.parseInt(JOptionPane.showInputDialog("How's life in college?\n\n" +
+                "1. great! " + great + "\n" +
+                "2. Good " + good + "\n" +
+                "3. Bad " + bad + "\n"));                
+                       
+                        // User ordered three items
+                        
+            answer = JOptionPane.showConfirmDialog(null, "Do you want to set another response ?");
+        } while (answer == JOptionPane.YES_OPTION);
+        
+       if(answer == JOptionPane.NO_OPTION){
+           JOptionPane.showMessageDialog(null,"Question1 Result: \n " + choice1 + " the most from the first question ");
+           JOptionPane.showMessageDialog(null,"Question2 Result:" + choice2 + " the most from the second question ");
+           JOptionPane.showMessageDialog(null,"Question3 Result: " + choice3 + " the most from the third question ");
+           JOptionPane.showMessageDialog(null,"Question4 Result: " + choice4 + " the most from the fourth question ");
+           
+                
+}
+}
+}
