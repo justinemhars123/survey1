@@ -1,48 +1,70 @@
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class pract1 {
+public class Survey{
+
     public static void main(String[] args) {
-         String great = "";
-         String good = "";
-         String bad = "";
-        
-        int choice1, choice2, choice3, choice4, answer;
+        Scanner input = new Scanner(System.in);
+        int[] answers = new int[4]; 
+        int[][] result = new int[4][3]; 
+        String response;
+
       
 
         do {
-            // Display menu and prompt for first choice
-             choice1 = Integer.parseInt(JOptionPane.showInputDialog("How you feel? \n\n" +
-                "1. great! " + great + "\n" +
-                "2. Good " + good + "\n" +
-                "3. Bad " + bad + "\n"));
+            // Ask a 1st Question
+            System.out.println("");
+              System.out.println("Survey:");
+            System.out.println("Q1: Do you like cats?");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            System.out.println("3. A little");
+            System.out.print("Choose answers between 1 - 3:");
+            answers[0] = input.nextInt();
+            result[0][answers[0] - 1]++;
 
-              choice2 = Integer.parseInt(JOptionPane.showInputDialog("How's your life?\n\n" +
-                "1. great! " + great + "\n" +
-                "2. Good " + good + "\n" +
-                "3. Bad " + bad + "\n"));
-                
-             choice3 = Integer.parseInt(JOptionPane.showInputDialog("How's life in college?\n\n" +
-                "1. great! " + great + "\n" +
-                "2. Good " + good + "\n" +
-                "3. Bad " + bad + "\n"));
-                
-             choice4 = Integer.parseInt(JOptionPane.showInputDialog("How's life in college?\n\n" +
-                "1. great! " + great + "\n" +
-                "2. Good " + good + "\n" +
-                "3. Bad " + bad + "\n"));                
-                       
-                        // User ordered three items
-                        
-            answer = JOptionPane.showConfirmDialog(null, "Do you want to set another response ?");
-        } while (answer == JOptionPane.YES_OPTION);
-        
-       if(answer == JOptionPane.NO_OPTION){
-           JOptionPane.showMessageDialog(null,"Question1 Result: \n " + choice1 + " the most from the first question ");
-           JOptionPane.showMessageDialog(null,"Question2 Result:" + choice2 + " the most from the second question ");
-           JOptionPane.showMessageDialog(null,"Question3 Result: " + choice3 + " the most from the third question ");
-           JOptionPane.showMessageDialog(null,"Question4 Result: " + choice4 + " the most from the fourth question ");
-           
-                
-}
-}
-}
+            // Ask a 2nd Question
+             System.out.println("");
+            System.out.println("Q2: Do you like cats?");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            System.out.println("3. Never happen");
+            System.out.print("Choose answers between 1 - 3: ");
+            answers[1] = input.nextInt();
+            result[1][answers[1] - 1]++;
+
+            // Ask a 3rd 
+             System.out.println("");
+            System.out.println("Q3: Do you consider pets be part of your family? ");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            System.out.println("3. A little");
+            System.out.print("Choose answers between 1 - 3: ");
+            answers[2] = input.nextInt();
+            result[2][answers[2] - 1]++;
+
+            // Ask a 4th Question
+             System.out.println("");
+            System.out.println("Q4: Do you like having pets as company?");
+            System.out.println("1. Not at all");
+            System.out.println("2. Somewhat");
+            System.out.println("3. Very much");
+            System.out.print("Choose answers between 1 - 3: ");
+            answers[3] = input.nextInt();
+            result[3][answers[3] - 1]++;
+
+ response = JOptionPane.showInputDialog(null, "Input (1) to continue adding reponses or Input (2) to stop and display the results:");
+ int choice = Integer.parseInt(response);
+            if (choice == 2) {
+                break;             }
+        } while (true);
+
+        System.out.println("Thank you for completing the survey!");
+
+        for (int i = 0; i < result.length; i++) {
+            System.out.println("Question " + (i + 1) + ":");
+            System.out.println("1. " + result[i][0]);
+            System.out.println("2. " + result[i][1]);
+            System.out.println("3. " + result[i][2]);
+        }
+    }
